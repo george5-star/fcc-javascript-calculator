@@ -1,0 +1,54 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100vh;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#root {
+  width: min(90%, 350px);
+  display: flex;
+  min-height: 60vh;
+  border: 1px solid black;
+  font-family: "Barlow", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.6rem;
+  color: white;
+  background-color: rgb(44, 44, 44);
+}
+
+#clear {
+  background-color: rgb(238, 56, 56);
+  grid-area: 1 / span 2;
+  transition: background-color 350ms ease;
+}
+
+#clear:hover {
+  background-color: rgb(201, 22, 22);
+}
+
+#zero {
+  grid-area: 5 / span 2;
+}
+
+#equals {
+  background-color: rgb(60, 164, 60);
+  grid-area: 4 / 4/ span 2 / -1;
+}
+
+#equals:hover {
+  background-color: rgb(22, 122, 22);
+}
