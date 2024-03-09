@@ -26,6 +26,11 @@ const Display = Styled.div`
   padding-inline-end: .5rem;
   `;
 
+// const InnerDisplay = Styled.span`
+//     margin-inline: .5em;
+//     border: 1px solid black;
+//   `;
+
 const padOptions = [
   { id: "clear", value: "AC" },
   { id: "divide", value: "/" },
@@ -47,15 +52,26 @@ const padOptions = [
 ];
 
 const App = () => {
-  const [display, setDisplay] = useState(0);
+  const [display, setDisplay] = useState([]);
 
   const handleClicked = (e) => {
     if (e.target.innerText === "AC") {
-      setDisplay(0);
+      setDisplay([]);
       return;
     }
 
-    setDisplay(e.target.innerText);
+    setDisplay((prevValue) => {
+      const condition =
+        e.target.innerText === "/" ||
+        e.target.innerText === "x" ||
+        e.target.innerText === "-" ||
+        e.target.innerText === "+" ||
+        e.target.innerText === "="
+          ? e.target.innerText
+          : Number(e.target.innerText);
+      return [...prevValue, condition];
+    });
+    console.log(display);
   };
 
   const keyPadElements = padOptions.map((pad) => {
